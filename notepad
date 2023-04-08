@@ -1,0 +1,190 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+
+public class notepadApp {
+	
+	
+	public static JFrame mainFrame = new JFrame();
+	public static JFrame mainFrame2 = new JFrame();
+
+	public static JFrame firFrame = new JFrame();
+	public static JFrame firFrame2 = new JFrame();
+
+	public static JPanel mainPanel = new JPanel();
+	public static JPanel mainPanel2 = new JPanel();
+
+	public static JPanel acilirPencere = new JPanel();
+	public static JPanel acilirPencere2 = new JPanel();
+	public static JPanel ayrac = new JPanel();
+	public static JButton dosya = new JButton();
+	public static JButton dosya2 = new JButton();
+
+	public static JButton acilirButon = new JButton();
+	public static JButton acilirButon2 = new JButton();
+
+	public static JButton acilirFrame = new JButton();
+	public static JButton acilirFrame2 = new JButton();
+
+	public static JButton programKapat= new JButton();
+	
+	public static JPanel serit = new JPanel();
+	public static JPanel main = new JPanel();
+
+	
+	public static JTextArea area = new JTextArea();
+	
+	
+//	public static JButton ??? = new JButton();
+	
+	
+	static void arayuz() {
+		mainPanel.setBounds(0,0,650,30);
+		mainPanel.setBackground(Color.white);
+		dosyaButon();
+	}
+	static void area() {
+		area.setLayout(null);
+		area.setBounds(10,200,500,300);
+		
+	}
+	static void serit() {
+		serit.setBounds(0,29,650,2);
+		serit.setBackground(Color.gray);
+		mainFrame.add(serit);
+	}
+	static void dosyaButon() {
+		
+		dosya.setText("Dosya");
+		dosya.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		dosya.setHorizontalAlignment(SwingConstants.LEFT);
+
+		dosya.setBackground(Color.white);
+		dosya.setForeground(Color.black);
+		dosya.setFont(new Font(null));
+	    Dimension size = dosya.getPreferredSize();
+		dosya.setBounds(0, 11, 70,20);
+		dosya.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent i6) {
+				acilirPencere();
+		
+			}
+		});
+		
+		
+		mainPanel.add(dosya);
+	}
+	
+	static void acilirPencere() {
+		acilirPencere.setBackground(new Color(232,232,232));
+		acilirPencere.setBounds(0,31,150,70);
+		//eklenen butonlar
+		
+		acilirPencere.add(acilirButon);
+		acilirPencere.add(acilirFrame);
+		acilirPencere.add(programKapat);
+		acilirPencere.add(ayrac);
+	}
+	
+	static void ayrac() {
+		ayrac.setBackground(Color.gray);
+		ayrac.setBounds(18,43,150,1);
+		
+	}
+	
+	
+	static void acilirButon() {
+		acilirButon.setText("Yeni");
+		acilirButon.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		acilirButon.setBackground(new Color(232,232,232));
+		acilirButon.setForeground(Color.black);
+		acilirButon.setFont(new Font(null));
+		Dimension s2 = acilirButon.getPreferredSize();
+		acilirButon.setBounds(0, 0, 60,20); 
+		acilirButon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent i75) {
+				JOptionPane.showMessageDialog(null,"Üzgünüz, yeni oluştur şuanda aktif değil ;( ","NotePad Sistem Mesajı",JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+	}
+	
+	static void acilirFrame() {
+		acilirFrame.setText("Yeni Pencere");
+		acilirFrame.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		acilirFrame.setBackground(new Color(232,232,232));
+		acilirFrame.setForeground(Color.black);
+		acilirFrame.setFont(new Font(null));
+		Dimension s3 = acilirFrame.getPreferredSize();
+		acilirFrame.setBounds(0, 20, 108, 20);
+		
+		acilirFrame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent i75) {
+				JOptionPane.showMessageDialog(null,"Üzgünüz, yeni pencere özelliği şuanda aktif değil ;( ","NotePad Sistem Mesajı",JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+		
+	}
+	static void programiKapat() {
+		programKapat.setText("Çıkış");
+		programKapat.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		programKapat.setBackground(new Color(232,232,232));
+		programKapat.setForeground(Color.black);
+		programKapat.setFont(new Font(null));
+		Dimension s3 = programKapat.getPreferredSize();
+		programKapat.setBounds(0, 45, 65, 20);
+		programKapat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent i75) {
+				System.exit(0);
+			}
+		});
+
+
+	}
+	
+
+	
+	
+	
+	
+	static void frame() {
+		mainFrame.setTitle("notepad");
+		mainFrame.getContentPane().setBackground(Color.white);
+		
+		mainFrame.setLayout(null);
+		mainFrame.setResizable(false);
+		mainFrame.setLocation(650,300);
+		mainFrame.setSize(600,400);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setVisible(true);
+		
+		//add
+		area();
+		acilirFrame();
+		acilirButon();
+		programiKapat();
+		ayrac();
+		
+		
+		mainFrame.add(area);
+		mainFrame.add(mainPanel);
+		mainFrame.add(acilirPencere);
+		serit();
+		arayuz();
+	}
+	public static void main(String[] args) {
+		
+		frame();
+//		frame2();
+	}
+
+}
